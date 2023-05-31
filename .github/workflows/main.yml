@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v2
         id: create_release
         with:
           draft: false
           prerelease: false
-          files: artifacts/*
+          
           release_name: Release ${{ github.ref }}
           tag_name: ${{ github.ref }}
           body: |
@@ -23,4 +23,4 @@ jobs:
             - first change
             - second change
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
